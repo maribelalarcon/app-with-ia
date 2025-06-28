@@ -1,0 +1,240 @@
+/* Paleta: azul, violeta y blanco */
+:root {
+    --primary: #4f8cff;
+    --secondary: #7c4dff;
+    --background: #f7faff;
+    --surface: #ffffff;
+    --accent: #b388ff;
+    --text: #22223b;
+    --text-light: #ffffff;
+    --border: #e0e7ff;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+header {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    color: var(--text-light);
+    padding: 1.5rem 0 1rem 0;
+    text-align: center;
+}
+header h1 {
+    margin: 0;
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+}
+main {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2rem 1rem;
+}
+#calendar-section, #events-section, #form-section {
+    background: var(--surface);
+    border-radius: 1rem;
+    box-shadow: 0 2px 8px #b388ff33;
+    padding: 1.5rem;
+    min-width: 300px;
+    max-width: 400px;
+    width: 100%;
+}
+#calendar-section {
+    flex: 2 1 350px;
+}
+#calendar-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+#calendar-controls button {
+    background: var(--primary);
+    color: var(--text-light);
+    border: none;
+    border-radius: 50%;
+    width: 2.2rem;
+    height: 2.2rem;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+#calendar-controls button:hover {
+    background: var(--secondary);
+}
+#calendar-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+#calendar {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+#calendar th, #calendar td {
+    text-align: center;
+    padding: 0.6rem 0.2rem;
+    border: 1px solid var(--border);
+    min-width: 2.2rem;
+    height: 2.2rem;
+}
+#calendar th {
+    background: var(--accent);
+    color: var(--text-light);
+    font-weight: 500;
+}
+#calendar td {
+    background: var(--surface);
+    cursor: pointer;
+    transition: background 0.15s;
+}
+#calendar td.selected, #calendar td:focus {
+    background: var(--primary);
+    color: var(--text-light);
+    outline: 2px solid var(--secondary);
+}
+#calendar td.has-event {
+    background: linear-gradient(135deg, var(--accent) 60%, var(--surface) 100%);
+    font-weight: 600;
+    color: var(--secondary);
+}
+#calendar td.today {
+    border: 2px solid var(--primary);
+}
+#event-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#event-list li {
+    background: var(--background);
+    border-left: 4px solid var(--primary);
+    margin-bottom: 0.7rem;
+    padding: 0.7rem 0.7rem 0.7rem 1rem;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+#event-list li .actions {
+    position: absolute;
+    right: 0.7rem;
+    top: 0.7rem;
+    display: flex;
+    gap: 0.5rem;
+}
+#event-list button {
+    background: none;
+    border: none;
+    color: var(--secondary);
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 0.1rem 0.3rem;
+    border-radius: 0.3rem;
+    transition: background 0.2s;
+}
+#event-list button:hover {
+    background: var(--accent);
+    color: var(--text-light);
+}
+#form-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+#form-section label {
+    font-weight: 500;
+}
+#form-section input, #form-section textarea {
+    padding: 0.5rem;
+    border-radius: 0.4rem;
+    border: 1px solid var(--border);
+    font-size: 1rem;
+    background: var(--background);
+    color: var(--text);
+}
+#form-section button[type="submit"] {
+    background: var(--primary);
+    color: var(--text-light);
+    border: none;
+    border-radius: 0.4rem;
+    padding: 0.6rem 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+#form-section button[type="submit"]:hover {
+    background: var(--secondary);
+}
+#cancel-edit {
+    background: var(--accent);
+    color: var(--text-light);
+    border: none;
+    border-radius: 0.4rem;
+    padding: 0.6rem 0;
+    font-size: 1rem;
+    margin-top: 0.2rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+#cancel-edit:hover {
+    background: var(--primary);
+}
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    background: var(--surface);
+    color: var(--secondary);
+    font-weight: 500;
+    letter-spacing: 1px;
+    border-top: 1px solid var(--border);
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+    main {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1.5rem;
+    }
+    #calendar-section, #events-section, #form-section {
+        max-width: 100%;
+        min-width: unset;
+    }
+}
+@media (max-width: 600px) {
+    body {
+        font-size: 15px;
+    }
+    main {
+        padding: 1rem 0.2rem;
+    }
+    #calendar-section, #events-section, #form-section {
+        padding: 1rem 0.6rem;
+    }
+    header h1 {
+        font-size: 1.3rem;
+    }
+}

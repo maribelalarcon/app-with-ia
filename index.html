@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda Deportiva</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1><span aria-hidden="true">🏋️‍♂️</span> Agenda Deportiva</h1>
+    </header>
+    <main>
+        <section id="calendar-section">
+            <div id="calendar-controls">
+                <button id="prev-month" aria-label="Mes anterior">&#8592;</button>
+                <h2 id="calendar-title"></h2>
+                <button id="next-month" aria-label="Mes siguiente">&#8594;</button>
+            </div>
+            <table id="calendar" aria-label="Calendario mensual">
+                <!-- El calendario se genera dinámicamente -->
+            </table>
+        </section>
+        <section id="events-section">
+            <h3>Eventos del día</h3>
+            <ul id="event-list">
+                <!-- Lista de eventos del día seleccionados -->
+            </ul>
+        </section>
+        <section id="form-section">
+            <h3 id="form-title">Añadir Evento</h3>
+            <form id="event-form" autocomplete="off">
+                <label for="event-title">Título:</label>
+                <input type="text" id="event-title" name="event-title" required maxlength="50">
+
+                <label for="event-desc">Descripción:</label>
+                <textarea id="event-desc" name="event-desc" maxlength="200"></textarea>
+
+                <label for="event-date">Fecha:</label>
+                <input type="date" id="event-date" name="event-date" required>
+
+                <label for="event-time">Hora:</label>
+                <input type="time" id="event-time" name="event-time" required>
+
+                <button type="submit" id="save-event">Guardar</button>
+                <button type="button" id="cancel-edit" style="display:none;">Cancelar</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>Hecho con <span aria-hidden="true">💪</span> por tu entrenador IA</p>
+    </footer>
+    <script src="app.js"></script>
+</body>
+</html>
